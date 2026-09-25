@@ -1,6 +1,6 @@
 # Awesome Real-Time Social Media Monitoring [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-[![License: MIT](https://img.shields.io/github/license/SisoSol/awesome-realtime-social-monitoring?style=flat-square&color=blue)](LICENSE) [![Last commit](https://img.shields.io/github/last-commit/SisoSol/awesome-realtime-social-monitoring?style=flat-square)](https://github.com/SisoSol/awesome-realtime-social-monitoring/commits) [![CI](https://github.com/SisoSol/awesome-realtime-social-monitoring/actions/workflows/ci.yml/badge.svg)](https://github.com/SisoSol/awesome-realtime-social-monitoring/actions/workflows/ci.yml) [![Built for 1322.io](https://img.shields.io/badge/built%20for-1322.io-3b82f6?style=flat-square)](https://1322.io) [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com/SisoSol/awesome-realtime-social-monitoring/pulls)
+[![License: MIT](https://img.shields.io/github/license/1322monitors/awesome-realtime-social-monitoring?style=flat-square&color=blue)](LICENSE) [![Last commit](https://img.shields.io/github/last-commit/1322monitors/awesome-realtime-social-monitoring?style=flat-square)](https://github.com/1322monitors/awesome-realtime-social-monitoring/commits) [![CI](https://github.com/1322monitors/awesome-realtime-social-monitoring/actions/workflows/ci.yml/badge.svg)](https://github.com/1322monitors/awesome-realtime-social-monitoring/actions/workflows/ci.yml) [![Built for 1322.io](https://img.shields.io/badge/built%20for-1322.io-3b82f6?style=flat-square)](https://1322.io) [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com/1322monitors/awesome-realtime-social-monitoring/pulls)
 
 > A curated list of APIs, tools and techniques for monitoring social media in real time: getting a post pushed to you over WebSocket or streaming the moment it lands, instead of polling REST endpoints on an interval. Covers X (Twitter), Instagram, Truth Social, YouTube, TikTok, Binance Square and news.
 
@@ -40,8 +40,9 @@ newsroom alerts — polling is structurally too slow.
 
 ## Platforms & their official real-time support
 
-- **X / Twitter** — the v2 filtered stream exists but is gated to high-tier
-  paid access; most developers are left polling. See
+- **X / Twitter** — the official v2 Filtered Stream is sold under pay-per-use
+  pricing, and X documents approximately 4-5 seconds of P99 latency for it;
+  watching a fixed list of accounts otherwise means polling. See
   [Twitter streaming API alternatives](https://1322.io/blog/twitter-streaming-api-alternatives).
 - **Instagram** — the Graph API has **no** real-time post firehose for arbitrary
   public accounts. See
@@ -69,9 +70,9 @@ newsroom alerts — polling is structurally too slow.
 
 ## APIs & services
 
-- **[1322](https://1322.io)** (ours) — one WebSocket across X, Instagram, Truth Social,
-  Binance Square, YouTube, TikTok and news; normalized JSON events, X delivery
-  typically 150-250ms. ([pricing](https://1322.io/pricing) · [docs](https://1322.io/docs))
+- **[1322](https://1322.io)** (ours) — one tracked-account workspace across X, Instagram,
+  Truth Social, Binance Square, YouTube, TikTok and news, with a documented WebSocket
+  feed per source; X delivery typically 150-250ms (observed, not an SLA). ([pricing](https://1322.io/pricing) · [docs](https://1322.io/docs))
 - **Official platform APIs** — authoritative but mostly poll-based / gated (see
   table above).
 - **Self-hosted scrapers** — full control, but you own the proxies, the breakage,
@@ -79,8 +80,7 @@ newsroom alerts — polling is structurally too slow.
 
 ## Comparisons & alternatives
 
-Honest, side-by-side breakdowns of the named services in this space (each keeps
-the competitor in the table — limits and strengths both):
+Side-by-side breakdowns of the named services in this space:
 
 - [Twitter (X) API alternatives](https://1322.io/compare/twitter-api-alternatives) — official X API v2 vs TweetStream vs TwitterAPI.io vs 1322
 - [TweetStream alternative](https://1322.io/alternatives/tweetstream) · [TwitterAPI.io alternative](https://1322.io/alternatives/twitterapi-io) · [Tweet Catcher alternative](https://1322.io/alternatives/tweet-catcher) · [Data365 alternative](https://1322.io/alternatives/data365)
@@ -91,19 +91,19 @@ the competitor in the table — limits and strengths both):
 
 Real, runnable WebSocket consumer examples (Node + Python):
 
-- [twitter-websocket-client](https://github.com/SisoSol/twitter-websocket-client) — X/Twitter
-- [instagram-realtime](https://github.com/SisoSol/instagram-realtime) — Instagram
-- [truthsocial-stream](https://github.com/SisoSol/truthsocial-stream) — Truth Social
-- [binance-square-realtime](https://github.com/SisoSol/binance-square-realtime) — Binance Square
-- [social-monitor-examples/youtube](https://github.com/SisoSol/social-monitor-examples/tree/main/youtube) — YouTube
-- [kol-tweet-alert-bot](https://github.com/SisoSol/kol-tweet-alert-bot) — KOL → Telegram alerts
-- [social-trading-signals](https://github.com/SisoSol/social-trading-signals) — posts → trading strategy
-- [prediction-market-router](https://github.com/SisoSol/prediction-market-router) — X keyword match → webhook signal router
-- [social-monitor-examples](https://github.com/SisoSol/social-monitor-examples) — all seven platforms, incl. TikTok
-- [1322-client](https://github.com/SisoSol/1322-client) — unified TypeScript/JavaScript client (npm)
-- [1322-python](https://github.com/SisoSol/1322-python) — unified async Python client (PyPI)
-- [1322-benchmark](https://github.com/SisoSol/1322-benchmark) — vendor-neutral latency measurement CLI
-- [1322-signal-observatory](https://github.com/SisoSol/1322-signal-observatory) — published operating profiles as JSON/CSV
+- [twitter-websocket-client](https://github.com/1322monitors/twitter-websocket-client) — X/Twitter
+- [instagram-realtime](https://github.com/1322monitors/instagram-realtime) — Instagram
+- [truthsocial-stream](https://github.com/1322monitors/truthsocial-stream) — Truth Social
+- [binance-square-realtime](https://github.com/1322monitors/binance-square-realtime) — Binance Square
+- [social-monitor-examples/youtube](https://github.com/1322monitors/social-monitor-examples/tree/main/youtube) — YouTube
+- [kol-tweet-alert-bot](https://github.com/1322monitors/kol-tweet-alert-bot) — KOL → Telegram alerts
+- [social-trading-signals](https://github.com/1322monitors/social-trading-signals) — posts → trading strategy
+- [prediction-market-router](https://github.com/1322monitors/prediction-market-router) — X keyword match → webhook signal router
+- [social-monitor-examples](https://github.com/1322monitors/social-monitor-examples) — all seven platforms, incl. TikTok
+- [1322-client](https://github.com/1322monitors/1322-client) — unified TypeScript/JavaScript client (npm)
+- [1322-python](https://github.com/1322monitors/1322-python) — unified async Python client (PyPI)
+- [1322-benchmark](https://github.com/1322monitors/1322-benchmark) — vendor-neutral latency measurement CLI
+- [1322-signal-observatory](https://github.com/1322monitors/1322-signal-observatory) — published operating profiles as JSON/CSV
 
 ## Techniques
 
@@ -125,7 +125,7 @@ as streaming.
 
 ## Related
 
-- [github.com/SisoSol](https://github.com/SisoSol) — every 1322 example, client, benchmark and dataset repo in one place
+- [github.com/1322monitors](https://github.com/1322monitors) — every 1322 example, client, benchmark and dataset repo in one place
 
 ## License
 
